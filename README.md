@@ -32,7 +32,9 @@ completed previously. There are two paths through this exercise:
 <details>
 <summary><strong>I want to build the forms myself</strong></summary>
 <ul>
-<li>Fork this repository and clone the fork.</li>
+<li>Fork this repository - you need to UNCHECK the checkbox that says "Copy the <code>main</code> branch only".</li>
+<img src="assets/forking_screenshot.png" alt="fork screenshot" width="600">
+<li>Clone the fork.</li>
 <li>Checkout the <code>freedom</code> branch ( <code>git checkout freedom</code> )</li>
 <li>Run <code>npm ci</code> to install dependencies.</li>
 <li>Use <code>npm run dev</code> to run the app.</li>
