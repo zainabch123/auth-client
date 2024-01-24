@@ -1,99 +1,35 @@
-import './App.css';
-import { useState } from 'react';
-import Form from './components/Form';
-import Input from './components/Input';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-export default function App() {
-    const [user, setUser] = useState({ username: '', password: '' });
-    const [registerResponse, setRegisterResponse] = useState('');
-    const [loginResponse, setLoginResponse] = useState('');
+function App() {
+  const [count, setCount] = useState(0)
 
-    const register = async (e) => {
-        e.preventDefault();
-        // Write your register code here
-
-
-    };
-
-    const login = async (e) => {
-        e.preventDefault();
-        // Write your login code here
-
-        
-    };
-
-
-
-
-
-
-    // You can safely ignore everything below this line, it's just boilerplate
-    // so you can focus on the exercise requirements
-
-    const handleChange = (e) => {
-        const { value, name } = e.target;
-
-        setUser({
-            ...user,
-            [name]: value
-        });
-    }
-
-    return (
-        <div className="App">
-
-            <h1>Register</h1>
-
-            <Form
-                handleSubmit={register}
-                inputs={[
-                    <Input
-                        key={1}
-                        type='text'
-                        name='username'
-                        placeholder='Username'
-                        value={user.username}
-                        handleChange={handleChange}
-                    />,
-                    <Input
-                        key={2}
-                        type='password'
-                        name='password'
-                        placeholder='Password'
-                        value={user.password}
-                        handleChange={handleChange}
-                    />
-                ]}
-            />
-
-            {registerResponse && <p>{registerResponse}</p>}
-
-            <h1>Login</h1>
-
-            <Form
-                handleSubmit={login}
-                inputs={[
-                    <Input
-                        key={1}
-                        type='text'
-                        name='username'
-                        placeholder='Username'
-                        value={user.username}
-                        handleChange={handleChange}
-                    />,
-                    <Input
-                        key={2}
-                        type='password'
-                        name='password'
-                        placeholder='Password'
-                        value={user.password}
-                        handleChange={handleChange}
-                    />
-                ]}
-            />
-
-            {loginResponse && <p>{loginResponse}</p>}
-
-        </div>
-    );
+  return (
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
+
+export default App
