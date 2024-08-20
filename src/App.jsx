@@ -27,13 +27,34 @@ export default function App() {
      .then((data) => {
        setRegisterResponse(data.user);
      });
+
+    setUser({ username: "", password: "" });
   };
+
+  console.log('register response', registerResponse)
 
   const login = async (e) => {
     e.preventDefault();
     // Write your login code here
 
+    fetch("http://localhost:4000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: user.username,
+        password: user.password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setLoginResponse(data.token);
+      });
+
   };
+
+  console.log('login response', loginResponse)
 
   // You can safely ignore everything below this line, it's just boilerplate
   // so you can focus on the exercise requirements
@@ -100,7 +121,7 @@ export default function App() {
         ]}
       />
 
-      {loginResponse && <p>{loginResponse}</p>}
+      {loginResponse && <p>Your token is: {loginResponse}</p>}
 
     </div>
   );
